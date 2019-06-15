@@ -35,54 +35,17 @@ namespace UnityStandardAssets.Vehicles.Car
             float rTrigger1 = OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger);
             // 右中指トリガー
             float rTrigger2 = OVRInput.Get(OVRInput.RawAxis1D.RHandTrigger);
-            // 左人差し指トリガー
-            float lTrigger1 = OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger);
-            // 左中指トリガー
-            float lTrigger2 = OVRInput.Get(OVRInput.RawAxis1D.LHandTrigger);
-            if (OVRInput.GetDown(OVRInput.RawButton.A))
+            //右アナログスティック
+            Vector2 stickR = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
+            if (OVRInput.Get(OVRInput.Button.Two)) //バック走行
             {
-                Debug.Log("Aボタンを押した");
+                m_Car.Move(stickR[0], -rTrigger2, -rTrigger2, rTrigger1);
             }
-            if (OVRInput.GetDown(OVRInput.RawButton.B))
+            else
             {
-                Debug.Log("Bボタンを押した");
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.X))
-            {
-                Debug.Log("Xボタンを押した");
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.Y))
-            {
-                Debug.Log("Yボタンを押した");
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.Start))
-            {
-                Debug.Log("メニューボタン（左アナログスティックの下にある）を押した");
+                m_Car.Move(stickR[0], rTrigger2, rTrigger2, rTrigger1);
             }
 
-            if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
-            {
-                Debug.Log("右人差し指トリガーを押した");
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger))
-            {
-                Debug.Log("右中指トリガーを押した");
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
-            {
-                Debug.Log("左人差し指トリガーを押した");
-            }
-            if (OVRInput.GetDown(OVRInput.RawButton.LHandTrigger))
-            {
-                Debug.Log("左中指トリガーを押した");
-            }
-            if(OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote)){
-                Debug.Log("右コントローラー接続");
-            }
-            if(OVRInput.IsControllerConnected(OVRInput.Controller.LTrackedRemote)){
-                Debug.Log("左コントローラー接続");
-            }
-            m_Car.Move(0, rTrigger1, rTrigger1, 0f);
 
         }
     }
