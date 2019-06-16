@@ -22,7 +22,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         // For proper crossfading, the clips pitches should all match, with an octave offset between low and high.
 
-
+        public Camera camera;
         public enum EngineAudioOptions // Options for the engine audio
         {
             Simple, // Simple style audio
@@ -87,7 +87,7 @@ namespace UnityStandardAssets.Vehicles.Car
         private void Update()
         {
             // get the distance to main camera
-            float camDist = (Camera.main.transform.position - transform.position).sqrMagnitude;
+            float camDist = (camera.transform.position - transform.position).sqrMagnitude;
 
             // stop sound if the object is beyond the maximum roll off distance
             if (m_StartedSound && camDist > maxRolloffDistance*maxRolloffDistance)
