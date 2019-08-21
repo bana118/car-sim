@@ -25,12 +25,12 @@ namespace UnityStandardAssets.Vehicles.Car
 #if !MOBILE_INPUT
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
 
-            //m_Car.Move(h, v, v, handbrake);
+            m_Car.Move(h, v, v, handbrake);
 #else
-            //m_Car.Move(h, v, v, 0f);
+            m_Car.Move(h, v, v, 0f);
 #endif
             //Oculus Touch
-
+            /* 
             // 右人差し指トリガー
             float rTrigger1 = OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger);
             // 右中指トリガー
@@ -45,7 +45,7 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 m_Car.Move(stickR[0], rTrigger2, rTrigger2, rTrigger1);
             }
-
+            */
 
         }
     }
